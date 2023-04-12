@@ -30,7 +30,7 @@ const server = app.listen(process.env.PORT, () =>
 );
 const io = socket(server, {
   cors: {
-    origin: "https://anonymchat.arpadine.com:4052",
+    origin: "http://localhost:4052",
     credentials: true,
   },
 });
