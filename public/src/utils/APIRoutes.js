@@ -1,4 +1,4 @@
-export const host = "https://arpadine.com:4050";
+export const host = "http://traccar.arpadine.com:4050";
 export const loginRoute = `${host}/api/auth/login`;
 export const registerRoute = `${host}/api/auth/register`;
 export const logoutRoute = `${host}/api/auth/logout`;
