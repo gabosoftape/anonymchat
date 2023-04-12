@@ -1,4 +1,4 @@
-export const host = "http://45.79.39.125:4050";
+export const host = "https://anonymchat.arpadine.com";
 export const loginRoute = `${host}/api/auth/login`;
 export const registerRoute = `${host}/api/auth/register`;
 export const logoutRoute = `${host}/api/auth/logout`;
