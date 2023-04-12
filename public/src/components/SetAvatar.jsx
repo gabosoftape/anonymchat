@@ -53,12 +53,12 @@ export default function SetAvatar() {
   };
 
   useEffect(async () => {
-    const available = [24, 30, 95, 99, 40, 49 , 44, 983, 873];
+    // const available = [24, 30, 95, 99, 40, 49 , 44, 983, 873];
     const data = [];
     for (let i = 0; i < 8; i++) {
       try {
         const image = await axios.get(
-            `${api}/${available[i]}`
+            `${api}/${Math.round(Math.random() * 1000)}`
         );
         const buffer = new Buffer(image.data);
         data.push(buffer.toString("base64"));
