@@ -136,6 +136,29 @@ const FormContainer = styled.div`
   gap: 1rem;
   align-items: center;
   background-color: #131324;
+  @media (min-width: 300px) and (max-width: 719px) {
+    .brand {
+      padding-top: 2rem;
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+    form {
+      padding: 1rem!important;
+    }
+    input {
+      width: 80%!important;
+      margin: auto!important;
+    }
+    button {
+      margin: 1rem 2rem;
+    }
+    span {
+      margin: 0.1rem 2.2rem;
+      padding-bottom: 2rem;
+    }
+  }
+  
   .brand {
     display: flex;
     align-items: center;
