@@ -105,7 +105,7 @@ const FormContainer = styled.div`
 
   @media (min-width: 300px) and (max-width: 719px) {
     form {
-      padding: 0;
+      padding: 1rem;
     }
   }
   
