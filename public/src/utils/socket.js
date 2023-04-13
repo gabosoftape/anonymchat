@@ -5,7 +5,7 @@ import {hostSocket} from "./APIRoutes";
 const URL = process.env.NODE_ENV === 'production' ? 'http://localhost:4050' : hostSocket;
 
 export const socket = io(URL,{     // note changed URL here
-    path: '/seacher',
+    path: '/channel',
     autoConnect: false,
     transports: ['websocket'],
 });
