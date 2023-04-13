@@ -28,9 +28,9 @@ export default function Chat() {
   useEffect(() => {
     if (currentUser) {
       socket.current = io(hostSocket, {
-        autoConnect: true
+        autoConnect: false
       });
-
+      socket.current.connect();
       socket.current.emit("add-user", currentUser._id);
     }
   }, [currentUser]);
