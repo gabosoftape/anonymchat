@@ -102,6 +102,19 @@ const FormContainer = styled.div`
   gap: 1rem;
   align-items: center;
   background-color: #131324;
+
+  @media screen and  (min-width: 576px) and (max-width: 719px) {
+    .brand {
+      img {
+        height: 2rem;
+      }
+    }
+    form {
+      border-radius: 2rem;
+      margin: 4rem;
+    }
+  }
+  
   .brand {
     display: flex;
     align-items: center;
