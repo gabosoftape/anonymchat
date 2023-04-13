@@ -122,6 +122,7 @@ const FormContainer = styled.div`
     }
     span {
       margin: 0.1rem 2.2rem;
+      padding-bottom: 2rem;
     }
   }
   
