@@ -125,7 +125,7 @@ const Container = styled.div`
       padding: 1rem 1rem;
       .message {
         .content {
-          max-width: 70%;
+          max-width: 70%!important;
         }
       }
     }
