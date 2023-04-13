@@ -10,6 +10,7 @@ import {socket} from "../utils/socket";
 
 export default function Chat() {
   const navigate = useNavigate();
+  const ws = useRef();
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -28,9 +29,10 @@ export default function Chat() {
   useEffect( () => {
     if (currentUser) {
       socket.connect();
-      console.log(socket.active);
+      ws.current = socket;
+      console.log(ws.current.active);
       if(socket){
-        socket.emit("add-user", currentUser._id);
+        ws.current.emit("add-user", currentUser._id);
       }else{
         console.log("add-user in socket not emitted");
       }
@@ -58,7 +60,7 @@ export default function Chat() {
           {currentChat === undefined ? (
             <Welcome />
           ) : (
-            <ChatContainer currentChat={currentChat} socket={socket} />
+            <ChatContainer currentChat={currentChat} socket={ws} />
           )}
         </div>
       </Container>
