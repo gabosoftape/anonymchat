@@ -23,6 +23,28 @@ export default function ChatContainer({ currentChat, socket }) {
   }, [currentChat]);
 
   useEffect(() => {
+    // no-op if the socket is already connected
+    socket.connect();
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    function onMessageReceive(msg) {
+      console.log(msg);
+      setArrivalMessage({ fromSelf: false, message: msg });
+    }
+
+    socket.on("msg-recieve", onMessageReceive);
+
+    return () => {
+      socket.off('msg-recieve', onMessageReceive);
+    };
+  }, [arrivalMessage]);
+
+  useEffect(() => {
     const getCurrentChat = async () => {
       if (currentChat) {
         await JSON.parse(
@@ -53,13 +75,13 @@ export default function ChatContainer({ currentChat, socket }) {
     setMessages(msgs);
   };
 
-  useEffect(() => {
-    if (socket) {
-      socket.on("msg-recieve", (msg) => {
-        setArrivalMessage({ fromSelf: false, message: msg });
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (socket) {
+  //     socket.on("msg-recieve", (msg) => {
+  //       setArrivalMessage({ fromSelf: false, message: msg });
+  //     });
+  //   }
+  // }, []);
 
   useEffect(() => {
     arrivalMessage && setMessages((prev) => [...prev, arrivalMessage]);
