@@ -117,6 +117,12 @@ const FormContainer = styled.div`
       width: 80%!important;
       margin: auto!important;
     }
+    button {
+      margin: 1rem 2rem;
+    }
+    span {
+      margin: 0.1rem 2.2rem;
+    }
   }
   
   .brand {
