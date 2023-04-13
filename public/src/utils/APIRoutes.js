@@ -1,4 +1,4 @@
-export const hostSocket = "https://anonymchat.arpadine.com/channels";
+export const hostSocket = "https://anonymchat.arpadine.com/ws";
 export const host = "https://anonymchat.arpadine.com";
 export const loginRoute = `${host}/api/auth/login`;
 export const registerRoute = `${host}/api/auth/register`;
