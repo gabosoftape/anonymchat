@@ -33,16 +33,4 @@ const Container = styled.div`
   span {
     color: #4e0eff;
   }
-  @media (min-width: 300px) and (max-width: 719px) {
-    img {
-      position: fixed;
-      top: 1rem;
-      right: 4rem;
-    }
-    span {
-      position: fixed;
-      top: 1rem;
-      right: 4rem;
-    }
-  }
 `;
