@@ -61,6 +61,11 @@ const Container = styled.div`
   @media (min-width: 300px) and (max-width: 719px) {
     grid-template-columns: 15% 85%;
     padding: 0;
+    .button-container {
+      .emoji {
+        margin: auto;
+      }
+    }
     
   }
   .button-container {
