@@ -164,7 +164,7 @@ const Container = styled.div`
         }
     }
     .current-user {
-      gap: 1rem;
+      gap: 0;
       flex-direction: column;
       .avatar {
         img {
