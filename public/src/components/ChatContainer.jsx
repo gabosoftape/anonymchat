@@ -23,11 +23,6 @@ export default function ChatContainer({ currentChat, socket }) {
   }, [currentChat]);
 
   useEffect(() => {
-    // no-op if the socket is already connected
-    socket.connect();
-  }, []);
-
-  useEffect(() => {
     function onMessageReceive(msg) {
       console.log(msg);
       setArrivalMessage({ fromSelf: false, message: msg });
