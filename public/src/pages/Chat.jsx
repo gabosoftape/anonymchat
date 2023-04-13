@@ -27,10 +27,16 @@ export default function Chat() {
   }, []);
   useEffect(() => {
     if (currentUser) {
-      socket.current = io(hostSocket, { secure: true});
+      socket.current = io.connect(hostSocket, {
+        transports: ['websocket'],
+        secure: true,
+      });
 
       socket.current.on('connect', function() {
         console.log('Connection to server established');
+      })
+      socket.current.on('disconnect', function() {
+        console.log('Connection to server not established');
       })
       socket.current.emit("add-user", currentUser._id);
     }
