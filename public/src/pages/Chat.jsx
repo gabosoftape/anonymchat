@@ -25,9 +25,9 @@ export default function Chat() {
       );
     }
   }, []);
-  useEffect(async () => {
+  useEffect( () => {
     if (currentUser) {
-      socket.current = await io.connect(hostSocket);
+      socket.current = io.connect(hostSocket);
       socket.current.emit("add-user", currentUser._id);
     }
   }, [currentUser]);
