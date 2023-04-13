@@ -28,8 +28,11 @@ export default function Chat() {
 
   useEffect( () => {
     if (currentUser) {
-      socket.connect();
-      socket.emit("add-user", currentUser._id);
+      if(socket){
+        socket.emit("add-user", currentUser._id);
+      }else{
+        console.log("add-user in socket not emitted");
+      }
     }
   }, [currentUser]);
 
