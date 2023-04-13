@@ -38,6 +38,7 @@ export default function ChatContainer({ currentChat, socket }) {
       localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
     );
     console.log(socket.active);
+    socket.connect();
     socket.emit("send-msg", {
       to: currentChat._id,
       from: data._id,
