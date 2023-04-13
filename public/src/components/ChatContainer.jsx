@@ -25,10 +25,6 @@ export default function ChatContainer({ currentChat, socket }) {
   useEffect(() => {
     // no-op if the socket is already connected
     socket.connect();
-
-    return () => {
-      socket.disconnect();
-    };
   }, []);
 
   useEffect(() => {
