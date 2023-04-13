@@ -34,10 +34,6 @@ export default function ChatContainer({ currentChat, socket }) {
     }
 
     socket.on("msg-recieve", onMessageReceive);
-
-    return () => {
-      socket.off('msg-recieve', onMessageReceive);
-    };
   }, [arrivalMessage]);
 
   useEffect(() => {
