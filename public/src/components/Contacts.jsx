@@ -154,8 +154,8 @@ const Container = styled.div`
     .brand {
       img {
         position: fixed;
-        top: 1rem;
-        right: 4rem;
+        top: 0.5rem;
+        right: 2.5rem;
       }
       h3 {
         position: fixed;
