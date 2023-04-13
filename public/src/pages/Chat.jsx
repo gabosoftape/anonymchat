@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { io } from "socket.io-client";
 import styled from "styled-components";
 import {allUsersRoute, hostSocket} from "../utils/APIRoutes";
 import ChatContainer from "../components/ChatContainer";
@@ -28,6 +27,7 @@ export default function Chat() {
 
   useEffect( () => {
     if (currentUser) {
+      socket.connect();
       if(socket){
         socket.emit("add-user", currentUser._id);
       }else{
