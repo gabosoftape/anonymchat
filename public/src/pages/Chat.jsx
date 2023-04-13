@@ -27,7 +27,7 @@ export default function Chat() {
   }, []);
   useEffect(() => {
     if (currentUser) {
-      socket.current = io(hostSocket);
+      socket.current = io(hostSocket, { secure: true});
 
       socket.current.on('connect', function() {
         console.log('Connection to server established');
