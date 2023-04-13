@@ -118,7 +118,22 @@ const Container = styled.div`
   background-color: #131324;
   height: 100vh;
   width: 100vw;
-
+  @media (min-width: 300px) and (max-width: 719px) {
+    .title-container {
+      h1 {
+        font-size: .5rem;
+      }
+    }
+    .avatars {
+      flex-direction: row;
+      width: 80%;
+      overflow: scroll;
+    }
+    .submit-btn {
+      font-size: .8rem;
+      width: 80%;
+    }
+  }
   .loader {
     max-inline-size: 100%;
   }
