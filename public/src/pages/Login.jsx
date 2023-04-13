@@ -105,6 +105,7 @@ const FormContainer = styled.div`
 
   @media (min-width: 300px) and (max-width: 719px) {
     .brand {
+      padding-top: 2rem;
       h1 {
         font-size: 1.5rem;
       }
