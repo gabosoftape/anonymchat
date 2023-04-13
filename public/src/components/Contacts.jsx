@@ -179,5 +179,24 @@ const Container = styled.div`
           text-overflow: ellipsis;
         }
       }
-  }
+    }
+    .contacts {
+      .contact {
+        gap: 0;
+        align-items: center;
+        transition: 0.5s ease-in-out;
+        flex-direction: column;
+        .avatar {
+          img {
+            height: 2rem;
+          }
+        }
+        .username {
+          h3 {
+            font-size: 1rem;
+            width: 90%;
+            text-overflow: ellipsis;
+          }
+        }
+      }
 `;
