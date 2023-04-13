@@ -10,7 +10,6 @@ import Welcome from "../components/Welcome";
 
 export default function Chat() {
   const navigate = useNavigate();
-  const socket = useRef();
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -27,18 +26,15 @@ export default function Chat() {
   }, []);
   useEffect(() => {
     if (currentUser) {
-      socket.current = io.connect(hostSocket, {
-        transports: ['websocket'],
-        secure: true,
-      });
+      const socket = io.connect(hostSocket);
 
-      socket.current.on('connect', function() {
+      socket.on('connect', function() {
         console.log('Connection to server established');
       })
-      socket.current.on('disconnect', function() {
+      socket.on('disconnect', function() {
         console.log('Connection to server not established');
       })
-      socket.current.emit("add-user", currentUser._id);
+      socket.emit("add-user", currentUser._id);
     }
   }, [currentUser]);
 
