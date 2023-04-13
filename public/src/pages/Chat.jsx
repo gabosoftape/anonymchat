@@ -10,6 +10,7 @@ import Welcome from "../components/Welcome";
 
 export default function Chat() {
   const navigate = useNavigate();
+  const socket = useRef();
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -26,15 +27,8 @@ export default function Chat() {
   }, []);
   useEffect(() => {
     if (currentUser) {
-      const socket = io.connect(hostSocket);
-
-      socket.on('connect', function() {
-        console.log('Connection to server established');
-      })
-      socket.on('disconnect', function() {
-        console.log('Connection to server not established');
-      })
-      socket.emit("add-user", currentUser._id);
+      socket.current = io(hostSocket);
+      socket.current.emit("add-user", currentUser._id);
     }
   }, [currentUser]);
 
