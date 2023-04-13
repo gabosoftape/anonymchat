@@ -33,4 +33,12 @@ const Container = styled.div`
   span {
     color: #4e0eff;
   }
+  @media (min-width: 300px) and (max-width: 719px) {
+    img {
+      height: 15rem;
+    }
+    h1, h3 {
+      padding-left: 1rem;  
+    }
+  }
 `;
