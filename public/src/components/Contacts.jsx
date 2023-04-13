@@ -69,6 +69,21 @@ const Container = styled.div`
   grid-template-rows: 10% 75% 15%;
   overflow: hidden;
   background-color: #080420;
+  @media (min-width: 300px) and (max-width: 719px) {
+    .brand {
+      img {
+        position: fixed;
+        top: 1rem;
+        right: 4rem;
+      }
+      span {
+        position: fixed;
+        top: 1rem;
+        right: 4rem;
+      }
+    }
+  }
+  
   .brand {
     display: flex;
     align-items: center;
