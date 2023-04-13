@@ -175,6 +175,8 @@ const Container = styled.div`
       .username {
         h2 {
           font-size: 1rem;
+          width: 90%;
+          text-overflow: ellipsis;
         }
       }
   }
