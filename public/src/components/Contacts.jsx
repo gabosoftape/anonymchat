@@ -174,7 +174,7 @@ const Container = styled.div`
       }
       .username {
         h2 {
-          display: none;
+          font-size: 1rem;
         }
       }
   }
