@@ -37,7 +37,10 @@ export default function ChatContainer({ currentChat, socket }) {
     const data = await JSON.parse(
       localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
     );
-    console.log(socket.current.active);
+    if(!socket.current.active){
+      socket.current.connect();
+      console.log(socket.current.active);
+    }
     socket.current.emit("send-msg", {
       to: currentChat._id,
       from: data._id,
