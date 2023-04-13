@@ -163,5 +163,18 @@ const Container = styled.div`
           right: 5rem;
         }
     }
+    .current-user {
+      gap: 1rem;
+      .avatar {
+        img {
+          height: 2rem;
+          max-inline-size: 100%;
+        }
+      }
+      .username {
+        h2 {
+          display: none;
+        }
+      }
   }
 `;
