@@ -165,6 +165,7 @@ const Container = styled.div`
     }
     .current-user {
       gap: 1rem;
+      flex-direction: column;
       .avatar {
         img {
           height: 2rem;
