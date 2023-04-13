@@ -121,7 +121,7 @@ const Container = styled.div`
   @media (min-width: 300px) and (max-width: 719px) {
     .title-container {
       h1 {
-        font-size: .5rem;
+        font-size: 1rem;
       }
     }
     .avatars {
