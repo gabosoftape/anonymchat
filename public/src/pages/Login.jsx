@@ -107,6 +107,10 @@ const FormContainer = styled.div`
     form {
       padding: 1rem!important;
     }
+    input {
+      width: 80%!important;
+      margin: auto!important;
+    }
   }
   
   .brand {
