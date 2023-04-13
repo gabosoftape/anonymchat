@@ -103,7 +103,7 @@ const FormContainer = styled.div`
   align-items: center;
   background-color: #131324;
 
-  @media (min-width: 576px) and (max-width: 719px) {
+  @media (min-width: 300px) and (max-width: 719px) {
     form {
       padding: 0;
     }
