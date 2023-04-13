@@ -104,6 +104,11 @@ const FormContainer = styled.div`
   background-color: #131324;
 
   @media (min-width: 300px) and (max-width: 719px) {
+    .brand {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
     form {
       padding: 1rem!important;
     }
