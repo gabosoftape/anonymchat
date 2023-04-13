@@ -152,16 +152,16 @@ const Container = styled.div`
   }
   @media (min-width: 300px) and (max-width: 719px) {
     .brand {
-      img {
-        position: fixed;
-        top: 0.5rem;
-        right: 2.5rem;
-      }
-      h3 {
-        position: fixed;
-        top: 1rem;
-        right: 4rem;
-      }
+        img {
+          position: fixed;
+          top: 0.5rem;
+          right: 2.5rem;
+        }
+        h3 {
+          position: fixed;
+          top: 1rem;
+          right: 5rem;
+        }
     }
   }
 `;
