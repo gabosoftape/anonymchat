@@ -60,10 +60,7 @@ export default function ChatContainer({ currentChat, socket }) {
   useEffect(() => {
     if (socket.current) {
       socket.current.on("msg-recieve", (msg) => {
-        console.log(msg);
-        console.log(currentChat._id);
-        console.log(getCurrentChat())
-        if(msg.from === currentChat._id){
+        if(msg.from === getCurrentChat()){
           setArrivalMessage({ fromSelf: false, message: msg.msg });
         }
       });
@@ -71,7 +68,7 @@ export default function ChatContainer({ currentChat, socket }) {
   }, []);
 
   function getCurrentChat() {
-    return localStorage.getItem('currentChatIndex');
+    return localStorage.getItem('currentChatId');
   }
 
 
