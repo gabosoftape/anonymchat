@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { sendMessageRoute, recieveMessageRoute } from "../utils/APIRoutes";
 
-export default function ChatContainer({ currentChat, socket }) {
+export default function ChatContainer({ currentChat, socket , contacts }) {
   const [messages, setMessages] = useState([]);
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
@@ -62,8 +62,10 @@ export default function ChatContainer({ currentChat, socket }) {
       socket.current.on("msg-recieve", (msg) => {
         let currentChatId = getCurrentChat();
         if(msg.from === currentChatId){
+          let contact = contacts.filter((contact) => contact._id === msg.to );
+          console.log(contact);
           const text = '¡OYE! tienes un mensaje!' + msg.msg ;
-          const notification = new Notification('Lista de tareas', { body: text });
+          const notification = new Notification('AnonymChat', { body: text });
           setArrivalMessage({ fromSelf: false, message: msg.msg });
         }
       });
