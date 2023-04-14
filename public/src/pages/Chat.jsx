@@ -27,7 +27,8 @@ export default function Chat() {
   }, []);
   useEffect( () => {
     if (currentUser) {
-      socket.current = io(hostSocket, {
+      socket.current = io.connect(hostSocket, {
+        path: '/ws',
         enabledTransports: ['ws', 'wss']
       });
       socket.current.emit("add-user", currentUser._id);
