@@ -30,7 +30,7 @@ export default function ChatInput({ handleSendMsg }) {
       <div className="button-container">
         <div className="emoji">
           <BsEmojiSmileFill onClick={handleEmojiPickerhideShow} />
-          {showEmojiPicker && <Picker onEmojiClick={handleEmojiClick} />}
+          {showEmojiPicker && <Picker className="picker" onEmojiClick={handleEmojiClick} />}
         </div>
       </div>
       <form className="input-container" onSubmit={(event) => sendChat(event)}>
