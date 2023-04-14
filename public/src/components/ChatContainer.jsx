@@ -61,9 +61,7 @@ export default function ChatContainer({ currentChat, socket }) {
     if (socket.current) {
       socket.current.on("msg-recieve", (msg) => {
         console.log(msg);
-        if(msg.to === currentChat._id){
-          setArrivalMessage({ fromSelf: false, message: msg.msg });
-        }
+        setArrivalMessage({ fromSelf: false, message: msg.msg });
       });
     }
   }, []);
