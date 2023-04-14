@@ -65,7 +65,7 @@ const Container = styled.div`
       .emoji {
         margin: auto;
         .emoji-picker-react {
-          position: relative;
+          position: relative!important;
           width: 100%;
         }
       }
