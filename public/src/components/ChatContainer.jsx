@@ -129,6 +129,16 @@ const Container = styled.div`
   }
   @media (min-width: 300px) and (max-width: 719px) {
     grid-template-rows: 10% 80% 10%;
+    .chat-header {
+      position: relative;
+      .user-details {
+        .avatar {
+          img {
+            height: 2rem;
+          }
+        }
+      }
+    }
     .chat-messages {
       padding: 1rem 1rem;
       .message {
