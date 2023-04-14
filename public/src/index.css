@@ -13,7 +13,7 @@ input {
 }
 
 body {
-  height: 100vh;
+  height: 100%;
   max-width: 100vw;
   overflow: scroll;
 }
