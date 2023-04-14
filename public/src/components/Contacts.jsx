@@ -18,6 +18,7 @@ export default function Contacts({ contacts, changeChat }) {
     localStorage.setItem('currentChatIndex', index);
   }
   const changeCurrentChat = (index, contact) => {
+    console.log(contact);
     updateStorageCurrentChat(index);
     setCurrentSelected(index);
     changeChat(contact);
