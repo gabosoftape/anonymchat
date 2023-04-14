@@ -62,7 +62,7 @@ export default function ChatContainer({ currentChat, socket }) {
       socket.current.on("msg-recieve", (msg) => {
         console.log(msg);
         console.log(currentChat._id);
-        console.log(getCurrentChat)
+        console.log(getCurrentChat())
         if(msg.from === currentChat._id){
           setArrivalMessage({ fromSelf: false, message: msg.msg });
         }
@@ -70,9 +70,10 @@ export default function ChatContainer({ currentChat, socket }) {
     }
   }, []);
 
-  const getCurrentChat = () => {
+  function getCurrentChat() {
     return localStorage.getItem('currentChatIndex');
   }
+
 
   useEffect(() => {
     arrivalMessage && setMessages((prev) => [...prev, arrivalMessage]);
