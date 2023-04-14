@@ -36,7 +36,7 @@ const io = socket(server, {
 });
 
 global.onlineUsers = new Map();
-io.of("/ws").on("connection", (socket) => {
+io.on("connection", (socket) => {
   global.chatSocket = socket;
   socket.on("add-user", (userId) => {
     console.log(userId)
