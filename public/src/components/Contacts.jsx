@@ -13,7 +13,12 @@ export default function Contacts({ contacts, changeChat }) {
     setCurrentUserName(data.username);
     setCurrentUserImage(data.avatarImage);
   }, []);
+
+  const updateStorageCurrentChat = (index) => {
+    localStorage.setItem('currentChatIndex', index);
+  }
   const changeCurrentChat = (index, contact) => {
+    updateStorageCurrentChat(index);
     setCurrentSelected(index);
     changeChat(contact);
   };
