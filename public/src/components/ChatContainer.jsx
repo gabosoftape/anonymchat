@@ -68,14 +68,14 @@ export default function ChatContainer({ currentChat, socket , contacts }) {
           setArrivalMessage({ fromSelf: false, message: msg.msg });
           setTimeout(() => {
             notification.close();
-          }, "2000");
+          }, "5000");
         }else{
           const contact = contacts.find(contact => contact._id === msg.from);
           const text = contact.username + ' dice: ' + msg.msg ;
           const notification = new Notification('AnonymChat', { body: text });
           setTimeout(() => {
             notification.close();
-          }, "2000");
+          }, "5000");
         }
       });
     }
