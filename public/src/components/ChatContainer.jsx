@@ -63,11 +63,19 @@ export default function ChatContainer({ currentChat, socket , contacts }) {
         let currentChatId = getCurrentChat();
         if(msg.from === currentChatId){
           const contact = contacts.find(contact => contact._id === currentChatId);
-          console.log(contact);
-          console.log(contacts);
-          const text = ' dice:' + msg.msg ;
+          const text = contact.username + ' dice:' + msg.msg ;
           const notification = new Notification('AnonymChat', { body: text });
           setArrivalMessage({ fromSelf: false, message: msg.msg });
+          setTimeout(() => {
+            notification.close();
+          }, "2000");
+        }else{
+          const contact = contacts.find(contact => contact._id === msg.from);
+          const text = contact.username + ' dice:' + msg.msg ;
+          const notification = new Notification('AnonymChat', { body: text });
+          setTimeout(() => {
+            notification.close();
+          }, "2000");
         }
       });
     }
