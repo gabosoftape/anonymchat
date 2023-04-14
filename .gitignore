@@ -24,4 +24,4 @@ public/.env.local
 
 # server dependencies
 
-/server/.env
+# /server/.env
