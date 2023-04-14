@@ -71,7 +71,7 @@ export default function ChatContainer({ currentChat, socket , contacts }) {
           }, "2000");
         }else{
           const contact = contacts.find(contact => contact._id === msg.from);
-          const text = contact.username + ' dice:' + msg.msg ;
+          const text = contact.username + ' dice: ' + msg.msg ;
           const notification = new Notification('AnonymChat', { body: text });
           setTimeout(() => {
             notification.close();
