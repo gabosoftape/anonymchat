@@ -62,10 +62,10 @@ export default function ChatContainer({ currentChat, socket , contacts }) {
       socket.current.on("msg-recieve", (msg) => {
         let currentChatId = getCurrentChat();
         if(msg.from === currentChatId){
-          let contact = contacts.find(contact => contact._id === msg.to);
+          const contact = contacts.find(contact => contact._id === currentChatId);
           console.log(contact);
           console.log(contacts);
-          const text = '¡OYE! tienes un mensaje!' + msg.msg ;
+          const text = ' dice:' + msg.msg ;
           const notification = new Notification('AnonymChat', { body: text });
           setArrivalMessage({ fromSelf: false, message: msg.msg });
         }
