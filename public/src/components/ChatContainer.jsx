@@ -62,6 +62,8 @@ export default function ChatContainer({ currentChat, socket }) {
       socket.current.on("msg-recieve", (msg) => {
         let currentChatId = getCurrentChat();
         if(msg.from === currentChatId){
+          const text = '¡OYE! tienes un mensaje!' + msg.msg ;
+          const notification = new Notification('Lista de tareas', { body: text });
           setArrivalMessage({ fromSelf: false, message: msg.msg });
         }
       });
@@ -71,7 +73,6 @@ export default function ChatContainer({ currentChat, socket }) {
   function getCurrentChat() {
     return localStorage.getItem('currentChatId');
   }
-
 
   useEffect(() => {
     arrivalMessage && setMessages((prev) => [...prev, arrivalMessage]);

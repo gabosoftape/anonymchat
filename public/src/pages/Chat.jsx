@@ -14,6 +14,8 @@ export default function Chat() {
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
+  const [enableNotifications, setEnableNotifications] = useState(false);
+
   useEffect(async () => {
     if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
       navigate("/login");
@@ -25,6 +27,48 @@ export default function Chat() {
       );
     }
   }, []);
+
+  function checkNotificationPromise() {
+    try {
+      Notification.requestPermission().then();
+    } catch(e) {
+      return false;
+    }
+
+    return true;
+  }
+
+  useEffect( () => {
+    function handlePermission(permission) {
+      // configura el botón para que se muestre u oculte, dependiendo de lo que
+      // responda el usuario
+      if(Notification.permission === 'denied' || Notification.permission === 'default') {
+        // notificationBtn.style.display = 'block'; tiene permisos
+        setEnableNotifications(true);
+
+      } else {
+        // notificationBtn.style.display = 'none'; no tiene permisos
+        setEnableNotifications(false);
+      }
+    }
+
+    // Comprobemos si el navegador admite notificaciones.
+    if (!('Notification' in window)) {
+      console.log("Este navegador no admite notificaciones.");
+    } else {
+      if(checkNotificationPromise()) {
+        Notification.requestPermission()
+            .then((permission) => {
+              handlePermission(permission);
+            })
+      } else {
+        Notification.requestPermission(function(permission) {
+          handlePermission(permission);
+        });
+      }
+    }
+  }, [enableNotifications]);
+
   useEffect( () => {
     if (currentUser) {
       socket.current = io.connect(hostSocket, {
