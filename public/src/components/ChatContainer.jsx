@@ -63,7 +63,7 @@ export default function ChatContainer({ currentChat, socket }) {
         console.log(msg);
         let currentChatId = getCurrentChat();
         console.log(currentChatId);
-        if(msg.to === currentChatId){
+        if(msg.from === currentChatId){
           setArrivalMessage({ fromSelf: false, message: msg.msg });
         }
       });
